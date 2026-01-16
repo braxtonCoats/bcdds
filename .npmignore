@@ -1,0 +1,63 @@
+# Source files (keep for TypeScript resolution, but exclude dev files)
+src/examples/
+src/figma/
+src/stories/
+src/App.tsx
+src/main.tsx
+
+# Development files
+.env
+.env.*
+!.env.example
+*.local
+
+# Scripts
+scripts/
+
+# Documentation (except README)
+docs/
+*.md
+!README.md
+
+# Build artifacts from app/storybook
+dist/app/
+dist/storybook/
+dist-ssr/
+
+# Development tools
+.vscode/
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Testing
+**/*.test.ts
+**/*.test.tsx
+**/__tests__/
+
+# Storybook
+.storybook/
+storybook-static/
+
+# Figma config (internal)
+figma.config.json
+
+# Git
+.git/
+.gitignore
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Misc
+node_modules/
+*.tsbuildinfo

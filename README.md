@@ -13,7 +13,124 @@ Whether you’re looking to use SDS to start a new project, or are looking for e
 - [Storybook](https://figma.github.io/sds/storybook)
 - [Figma Community File](https://www.figma.com/community/file/1380235722331273046/simple-design-system)
 
-## Setup
+## Installation
+
+Install the package directly from the Git repository:
+
+```bash
+npm install git+https://github.com/yourusername/bcdds.git
+```
+
+Or add it to your `package.json`:
+
+```json
+{
+  "dependencies": {
+    "bcdds": "git+https://github.com/yourusername/bcdds.git"
+  }
+}
+```
+
+## Usage
+
+### Importing Components
+
+You can import components from the main package or from specific entry points:
+
+```tsx
+// Import from main entry point
+import { Button, InputField, Dialog } from "bcdds";
+
+// Or import from specific entry points
+import { Button } from "bcdds/primitives";
+import { Header, Footer } from "bcdds/compositions";
+import { Flex, Section } from "bcdds/layout";
+import { useMediaQuery } from "bcdds/hooks";
+import { IconChevronLeft } from "bcdds/icons";
+```
+
+### Importing Styles
+
+Import the main CSS file to get all styles:
+
+```tsx
+// In your main entry file (e.g., main.tsx or App.tsx)
+import "bcdds/styles";
+
+// Or import specific CSS files if you prefer
+import "bcdds/styles/theme.css";
+```
+
+### Setting Up Path Aliases (Optional)
+
+To use path aliases in your project (like `import { Button } from "primitives"`), configure your bundler and TypeScript:
+
+**For Vite (`vite.config.ts`):**
+
+```ts
+import path from "path";
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  resolve: {
+    alias: {
+      compositions: path.resolve(__dirname, "./node_modules/bcdds/dist/compositions.js"),
+      primitives: path.resolve(__dirname, "./node_modules/bcdds/dist/primitives.js"),
+      layout: path.resolve(__dirname, "./node_modules/bcdds/dist/layout.js"),
+      hooks: path.resolve(__dirname, "./node_modules/bcdds/dist/hooks.js"),
+      icons: path.resolve(__dirname, "./node_modules/bcdds/dist/icons.js"),
+      utils: path.resolve(__dirname, "./node_modules/bcdds/dist/utils.js"),
+    },
+  },
+});
+```
+
+**For TypeScript (`tsconfig.json`):**
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "compositions": ["./node_modules/bcdds/dist/compositions"],
+      "primitives": ["./node_modules/bcdds/dist/primitives"],
+      "layout": ["./node_modules/bcdds/dist/layout"],
+      "hooks": ["./node_modules/bcdds/dist/hooks"],
+      "icons": ["./node_modules/bcdds/dist/icons"],
+      "utils": ["./node_modules/bcdds/dist/utils"]
+    }
+  }
+}
+```
+
+### Example
+
+```tsx
+import React from "react";
+import { Button, InputField } from "bcdds";
+import "bcdds/styles";
+
+function App() {
+  return (
+    <div>
+      <InputField label="Name" placeholder="Enter your name" />
+      <Button variant="primary">Submit</Button>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Peer Dependencies
+
+This package requires React 18.2.0 or higher. Make sure you have it installed:
+
+```bash
+npm install react@^18.2.0 react-dom@^18.2.0
+```
+
+## Setup (Development)
 
 - `npm i` to install dependencies
 - `npm run app:dev` will run server at [localhost:8000](http://localhost:8000) which renders contents of [App.tsx](src/App.tsx)
