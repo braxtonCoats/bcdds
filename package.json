@@ -58,11 +58,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Braxton-Coats-Design/bcdds.git"
+    "url": "https://github.com/braxtonCoats/bcdds.git"
   },
-  "homepage": "https://github.com/Braxton-Coats-Design/bcdds#readme",
+  "homepage": "https://github.com/braxtonCoats/bcdds#readme",
   "bugs": {
-    "url": "https://github.com/Braxton-Coats-Design/bcdds/issues"
+    "url": "https://github.com/braxtonCoats/bcdds/issues"
   },
   "publishConfig": {
     "access": "public"
@@ -76,6 +76,7 @@
     "storybook:build": "storybook build --output-dir dist/storybook",
     "build": "npm run app:build; npm run storybook:build",
     "build:lib": "vite build --config vite.lib.config.ts && tsc -p tsconfig.lib.json --skipLibCheck --noEmit false || echo 'Type declarations generated with warnings'",
+    "prepare": "npm run build:lib",
     "prepublishOnly": "npm run build:lib",
     "script:dev-resources": "cd scripts/dev-resources; node --env-file=../../.env app.mjs; cd -;",
     "script:icons": "cd scripts/icons; node --env-file=../../.env app.mjs --skip-rest-api; cd -;",
