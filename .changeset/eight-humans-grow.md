@@ -1,5 +1,0 @@
----
-"bcdds": major
----
-
-Initial release.
