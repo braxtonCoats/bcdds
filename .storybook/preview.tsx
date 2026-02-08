@@ -9,6 +9,12 @@ const preview: Preview = {
   parameters: {
     docs: {
       theme: theme,
+      source: {
+        type: "dynamic",
+      },
+      canvas: {
+        sourceState: "shown",
+      },
     },
   },
 
